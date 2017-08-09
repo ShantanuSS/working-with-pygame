@@ -1,3 +1,6 @@
+#created by shantanu
+#implementation of GUI 
+#handles event that enables movement of square on the screen 
 import pygame
 pygame.init()
 screen=pygame.display.set_mode((400,300))
