@@ -1,3 +1,4 @@
+#this is small input game without pygame module for testing randint function
 from random import randint
 x=randint(1,9)
 guess=-1;
