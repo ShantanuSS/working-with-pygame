@@ -52,9 +52,9 @@ while do:
         paddle2y -=5
     elif pressed[pygame.K_DOWN]:
         paddle2y +=5
-
-
-    
+    #managing velocity of ball
+    ballx+=ball_xv
+    bally+=ball_yv    
     if bally-ballr <=0 or bally+ballr >=screen_height:  #collision of ball with top down of screen
         ball_yv*=-1
     if paddle1y<0:    #collision of paddle 1 with edges of screen
@@ -68,7 +68,7 @@ while do:
 
     if ballx<paddle1x + paddle1w and bally>=paddle1y and bally<=paddle1y+paddle1h: #collision of ball and left paddle
         ball_xv*=-1
-    if ballx>paddle2x and bally>=paddle2y and bally<=paddle2y+paddle2h: 
+    if ballx>paddle2x and bally>=paddle2y and bally<=paddle2y+paddle2h: #collision of ball and left paddle
         ball_xv*=-1
 
     if ballx<=0:                    
@@ -80,8 +80,8 @@ while do:
         ballx=int(screen_width/2)
         bally=int(screen_height/2)
     game_screen.fill(black)
-    paddle1=pygame.draw.rect(game_screen,white,(paddle1x,paddle1y,paddle1w,paddle1h),0)
-    paddle2=pygame.draw.rect(game_screen,white,(paddle2x,paddle2y,paddle2w,paddle2h),0)
+    paddle1=pygame.draw.rect(game_screen,white(paddle1x,paddle1y,paddle1w,paddle1h),0)
+    paddle2=pygame.draw.rect(game_screen,white(paddle2x,paddle2y,paddle2w,paddle2h),0)
     net=pygame.draw.line(game_screen,yellow,(300,5),(300,400))
     ball=pygame.draw.circle(game_screen,red,(ballx,bally),ballr,0)
     score=font.render(str(scorep1) +" "+str(scorep2),1,white)
