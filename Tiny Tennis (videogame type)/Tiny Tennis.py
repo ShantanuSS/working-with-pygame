@@ -34,7 +34,7 @@ paddle2h=100
 scorep1=0
 scorep2=0
 #logic starts here-
-pygame.mouse.set_visible(0)  #make
+pygame.mouse.set_visible(0)  #make mouse pointer invisible on game screen
 do=True
 while do:
     pressed=pygame.key.get_pressed()
