@@ -53,8 +53,8 @@ while do:
     elif pressed[pygame.K_DOWN]:
         paddle2y +=5
     #managing velocity of ball
-    ballx+=ball_xv
-    bally+=ball_yv    
+    ballx+=ball_xv   #change ball speed by something like this ballx+=(ball_xv *2)
+    bally+=ball_yv    #this also bally+=(ball_yv *2)
     if bally-ballr <=0 or bally+ballr >=screen_height:  #collision of ball with top down of screen
         ball_yv*=-1
     if paddle1y<0:    #collision of paddle 1 with edges of screen
