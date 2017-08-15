@@ -22,7 +22,7 @@ class Player:
         self.updatecount+=1
         if  self.updatecount > self.updatecountmax:
             for i in range(self.length-1,0,-1):
-                print ("self.x["+ str(i)+"]=self.x["+setr(i-1)+"]")
+                print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
                 self.x[i]=self.x[i-1]
                 self.y[i]=self.y[i-1]
 
@@ -63,13 +63,14 @@ class SnakeGame:
     def on_init(self):
         pygame.init()
         self.displayG=pygame.display.set_mode((self.window_width,self.window_height),pygame.HWSURFACE)
-        pygame.display.set_caption('Snake Game for you') #pyagamedisplay
+        pygame.display.set_caption('Snake Game for you') 
         self.runningG=True
         self.imageG=pygame.image.load("pygame.png").convert()
     def on_event(self,event):
         if event.type==QUIT:
             self.runningG=False
     def on_loop(self):
+        self.player.update()
         pass
     def on_render(self):
         self.displayG.fill((0,0,0))
