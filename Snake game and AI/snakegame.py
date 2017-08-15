@@ -95,7 +95,20 @@ class SnakeGame:
             self.runningG=False
     def on_loop(self):
         self.player.update()
-        pass
+        #pass
+        for i in range(0,self.player.length):
+            if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i],self.player.y[i],44):
+                self.apple.x=randint(2,9)*44
+                self.apple.y=randint(2,9)*44
+                self.player.length+=1
+        for i in range(2,self.player.length):
+            if self.game.isCollision(self.player.x[0],self.player.y[0],self.player[i],self.player.y[i],40):
+                print("You lose! Collision")
+                print("x[0]("+ str(self.player.x[0]) +","+str(self.player.y[0])+")")
+                print("x["+str(i)+"]("+str(self.player.x[i])+","+str(self.player.y[i])+")")
+                exit(0)
+
+        pass                
     def on_render(self):
         self.displayG.fill((0,0,0))
         #self.displayG.blit(self.imageG,(self.player.x,self.player.y))
