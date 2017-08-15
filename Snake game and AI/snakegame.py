@@ -1,20 +1,21 @@
 from pygame.locals import *
+from random import randint
 import pygame
 import time
 class Food:
-    #x=10
-    #y=10
+    x=0
+    y=0
     step=44
     def __init__(self,x,y):
         self.x=x*self.step
         self.y=y*self.step
     def draw(self,surface,image):
-        surface.blit(image,(self.x,self,y))
+        surface.blit(image,(self.x,self.y))
 class Player:
     #x=10
     #y=10
-    x=[]
-    y=[]
+    x=[0]
+    y=[0]
     step=44
     direction=0
     #speed=1
@@ -23,12 +24,15 @@ class Player:
     updatecount=0
     def __init__(self,length):
         self.length=length
-        for i in range(0,length):
-            self.x.append(0)
-            self.y.append(0)
+        for i in range(0,2000):
+            self.x.append(-100)
+            self.y.append(-100)
+            #initial pos ;no collisions
+            self.x[1]=1*44
+            self.x[2]=2*44
     def update(self):
         self.updatecount+=1
-        if  self.updatecount > self.updatecountmax:
+        if  self.updatecount > self.updatecountmax: 
             for i in range(self.length-1,0,-1):
                 print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
                 self.x[i]=self.x[i-1]
@@ -58,18 +62,25 @@ class Player:
     def draw(self,surface,image):
         for i in range(0,self.length):
             surface.blit(image,(self.x[i],self.y[i]))
+class Game:
+    def isCollision(self,x1,y1,x2,y2,bsize):
+        if x1>=x2 and x1<=x2+bsize:
+            if y1>=y2 and y1<=y2+bsize:
+                return True
+        return False
 class SnakeGame:
     window_width=800
     window_height=600
     player=0
-    foodie=0
+    apple=0
 
     def __init__(self):
         self.runningG=True
         self.displayG=None
         self.imageG=None
         self.appleG=None
-        self.player=Player(10)
+        self.game=Game()
+        self.player=Player(3)
         self.apple=Food(5,5)
         
     def on_init(self):
