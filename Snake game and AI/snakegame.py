@@ -23,7 +23,7 @@ class SnakeGame:
         self.imageG=None
         self.player=Player()
     def on_init(self):
-        pygameinit()
+        pygame.init()
         self.displayG=pygame.display.set_mode((self.window_width,self.window_height),pygame.HWSURFACE)
         pygame.display.set_caption('Snake Game for you') #pyagamedisplay
         self.runningG=True
