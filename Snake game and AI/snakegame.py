@@ -1,7 +1,7 @@
 from pygame.locals import *
 import pygame
 import time
-class Apple:
+class Food:
     #x=10
     #y=10
     step=44
