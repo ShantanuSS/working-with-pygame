@@ -62,18 +62,23 @@ class SnakeGame:
     window_width=800
     window_height=600
     player=0
+    foodie=0
 
     def __init__(self):
         self.runningG=True
         self.displayG=None
         self.imageG=None
+        self.appleG=None
         self.player=Player(10)
+        self.apple=Food(5,5)
+        
     def on_init(self):
         pygame.init()
         self.displayG=pygame.display.set_mode((self.window_width,self.window_height),pygame.HWSURFACE)
         pygame.display.set_caption('Snake Game for you') 
         self.runningG=True
         self.imageG=pygame.image.load("pygame.png").convert()
+        self.appleG=pygame.image.load("foodie.png").convert()
     def on_event(self,event):
         if event.type==QUIT:
             self.runningG=False
@@ -84,6 +89,7 @@ class SnakeGame:
         self.displayG.fill((0,0,0))
         #self.displayG.blit(self.imageG,(self.player.x,self.player.y))
         self.player.draw(self.displayG,self.imageG)
+        self.apple.draw(self.displayG,self.appleG)
         pygame.display.flip()
     def on_cleanup(self):
         pygame.quit()
@@ -105,7 +111,7 @@ class SnakeGame:
                 self.runningG=False
             self.on_loop()
             self.on_render()
-        time.sleep(50.0/1000.0)
+        time.sleep(50.0/1000.0);
         self.on_cleanup()
 
 if __name__=="__main__":
