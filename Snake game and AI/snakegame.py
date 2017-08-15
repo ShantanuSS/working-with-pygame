@@ -36,13 +36,20 @@ class Player:
                 self.y[0]+=self.step
             self.updatecount=0
     def moveright(self):
-        self.x+=self.speed
+        #self.x+=self.speed
+        self.direction=0
     def moveleft(self):
-        self.x-=self.speed
+        #self.x-=self.speed
+        self.direction=1
     def moveup(self):
-        self.y-=self.speed
+        #self.y-=self.speed
+        self.direction=2
     def movedown(self):
-        self.y+=self.speed
+        #self.y+=self.speed
+        self.direction=3
+    def draw(self,surface,image):
+        for i in range(0,self.length):
+            surface.blit(image,(self.x[i],self.y[i]))
 class SnakeGame:
     window_width=800
     window_height=600
