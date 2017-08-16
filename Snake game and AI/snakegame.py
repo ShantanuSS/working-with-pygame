@@ -32,12 +32,12 @@ class Player:
         self.x[2]=2*44
     def update(self):
         self.updatecount+=1
-        if  self.updatecount > self.updatecountmax: 
+        if  self.updatecount > self.updatecountmax:  #update prev pso 
             for i in range(self.length-1,0,-1):
                 #print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
                 self.x[i]=self.x[i-1]
                 self.y[i]=self.y[i-1]
-
+            #update head of snake
             if self.direction==0:
                 self.x[0]+=self.step
             if self.direction==1:
@@ -62,7 +62,7 @@ class Player:
     def draw(self,surface,image):
         for i in range(0,self.length):
             surface.blit(image,(self.x[i],self.y[i]))
-class Game:
+class Game:                                         #handling collision with snake's food
     def isCollision(self,x1,y1,x2,y2,bsize):
         if x1>=x2 and x1<=x2+bsize:
             if y1>=y2 and y1<=y2+bsize:
@@ -96,12 +96,12 @@ class SnakeGame:
     def on_loop(self):
         self.player.update()
         #pass
-        for i in range(0,self.player.length):
+        for i in range(0,self.player.length): #snake eating apple
             if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i],self.player.y[i],44):
                 self.apple.x=randint(2,9)*44
                 self.apple.y=randint(2,9)*44
                 self.player.length+=1
-        for i in range(2,self.player.length):
+        for i in range(2,self.player.length):  #snake collide with itself
             if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i],self.player.y[i],40):
                 print("You lose! Collision")
                 print("x[0]("+ str(self.player.x[0]) +","+str(self.player.y[0])+")")
