@@ -34,7 +34,7 @@ class Player:
         self.updatecount+=1
         if  self.updatecount > self.updatecountmax: 
             for i in range(self.length-1,0,-1):
-                print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
+                #print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
                 self.x[i]=self.x[i-1]
                 self.y[i]=self.y[i-1]
 
