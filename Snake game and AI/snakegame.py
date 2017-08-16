@@ -28,8 +28,8 @@ class Player:
             self.x.append(-100)
             self.y.append(-100)
             #initial pos ;no collisions
-            self.x[1]=1*44
-            self.x[2]=2*44
+        self.x[1]=1*44
+        self.x[2]=2*44
     def update(self):
         self.updatecount+=1
         if  self.updatecount > self.updatecountmax: 
@@ -102,7 +102,7 @@ class SnakeGame:
                 self.apple.y=randint(2,9)*44
                 self.player.length+=1
         for i in range(2,self.player.length):
-            if self.game.isCollision(self.player.x[0],self.player.y[0],self.player[i],self.player.y[i],40):
+            if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i],self.player.y[i],40):
                 print("You lose! Collision")
                 print("x[0]("+ str(self.player.x[0]) +","+str(self.player.y[0])+")")
                 print("x["+str(i)+"]("+str(self.player.x[i])+","+str(self.player.y[i])+")")
