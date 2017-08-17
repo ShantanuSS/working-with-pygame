@@ -4,7 +4,7 @@ from random import randint
 import pygame
 import time
 
-class Food:
+class Food:  #same as snakegame.py
     x=0
     y=0
     step=44
@@ -14,12 +14,11 @@ class Food:
     def draw(self,surface,image):
         surface.blit(image,(self.x,self.y))
 
-class Player:
+class Player: #same as snakegame.py
     x=[0]
     y=[0]
     step=44
     direction=0
-    #speed=1
     length=3
     updatecountmax=2
     updatecount=0
