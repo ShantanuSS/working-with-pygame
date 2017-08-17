@@ -32,7 +32,7 @@ class Player:
         self.x[2]=2*44
     def update(self):
         self.updatecount+=1
-        if  self.updatecount > self.updatecountmax:  #update prev pso 
+        if  self.updatecount > self.updatecountmax:  #update prev position
             for i in range(self.length-1,0,-1):
                 #print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
                 self.x[i]=self.x[i-1]
