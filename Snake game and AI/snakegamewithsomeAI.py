@@ -135,6 +135,7 @@ class SnakeGame:
         self.player=Player(5)
         self.apple=Food(8,5)
         self.computer=Computer(5)
+        self.im1=None
         
     def on_init(self):
         pygame.init()
@@ -143,6 +144,7 @@ class SnakeGame:
         self.runningG=True
         self.imageG=pygame.image.load("pygame.png").convert()
         self.appleG=pygame.image.load("foodie.png").convert()
+        self.im1=pygame.image.load("im1.png").convert()
     def on_event(self,event):
         if event.type==QUIT:
             self.runningG=False
@@ -172,7 +174,7 @@ class SnakeGame:
         self.displayG.fill((0,0,0))
         self.player.draw(self.displayG,self.imageG)
         self.apple.draw(self.displayG,self.appleG)
-        self.computer.draw(self.displayG,self.imageG)
+        self.computer.draw(self.displayG,self.im1)
         pygame.display.flip()
     def on_cleanup(self):
         pygame.quit()
