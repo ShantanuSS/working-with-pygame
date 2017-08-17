@@ -144,7 +144,7 @@ class SnakeGame:
         self.game=Game()
         self.player=Player(5)
         self.apple=Food(8,5)
-        self.computer=Computer()(5)
+        self.computer=Computer(5)
         
     def on_init(self):
         pygame.init()
