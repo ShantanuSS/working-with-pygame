@@ -159,7 +159,7 @@ class SnakeGame:
             if self.game.isCollision(self.apple.x,self.apple.y,self.computer.x[i],self.computer.y[i],44):
                 self.apple.x=randint(2,9)*44
                 self.apple.y=randint(2,9)*44
-                #self.computer.length+=1
+                #self.computer.length+=1    ;using this line computer's snake size also increases after eating ;so for simplicity don't use it
         for i in range(2,self.player.length):  
             if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i],self.player.y[i],40):
                 print("You lose! Collision")
