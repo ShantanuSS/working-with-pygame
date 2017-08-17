@@ -15,8 +15,6 @@ class Food:
         surface.blit(image,(self.x,self.y))
 
 class Player:
-    #x=10
-    #y=10
     x=[0]
     y=[0]
     step=44
