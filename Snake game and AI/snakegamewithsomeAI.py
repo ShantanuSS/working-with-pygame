@@ -1,4 +1,5 @@
 #here we have to add a Computer Player
+
 class Computer:
     x=[0]
     y=[0]
@@ -72,4 +73,21 @@ class Computer:
                 exit(0)
 
         pass                
+    
+    def target(Self,dx,dy):   #this func will go to destintion and neglect any obstacles
+        if self.x[0] >dx:
+            self.moveleft()
+        if self.x[0] <dx:
+            self.moveright()
+        if self.x[0] ==dx:
+            if self.y[0] <dy:
+                self.movedown()
+            if self.y[0]>dy:
+                self.moveup()
+
+        
+                
+        
+        
+
     
