@@ -202,3 +202,4 @@ class SnakeGame:
 if __name__=="__main__":
     snake=SnakeGame()
     snake.on_execute()
+    
