@@ -108,7 +108,7 @@ class Computer:
     def movedown(self):
         self.direction=3
 
-    def target(Self,dx,dy):   #this func will go to destintion and neglect any obstacles
+    def target(self,dx,dy):   #this func will go to destintion and neglect any obstacles
         if self.x[0] >dx:
             self.moveleft()
         if self.x[0] <dx:
