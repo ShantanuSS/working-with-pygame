@@ -1,6 +1,22 @@
 #here we have to add a Computer Player
+from pygame.locals import *
+from random import randint
+import pygame
+import time
 
-class Computer:
+class Food:
+    x=0
+    y=0
+    step=44
+    def __init__(self,x,y):
+        self.x=x*self.step
+        self.y=y*self.step
+    def draw(self,surface,image):
+        surface.blit(image,(self.x,self.y))
+
+class Player:
+    #x=10
+    #y=10
     x=[0]
     y=[0]
     step=44
@@ -17,6 +33,55 @@ class Computer:
             #initial pos ;no collisions
         self.x[1]=1*44
         self.x[2]=2*44
+    def update(self):
+        self.updatecount+=1
+        if  self.updatecount > self.updatecountmax:  #update prev position
+            for i in range(self.length-1,0,-1):
+                #print ("self.x["+ str(i)+"]=self.x["+str(i-1)+"]")
+                self.x[i]=self.x[i-1]
+                self.y[i]=self.y[i-1]
+            #update head of snake
+            if self.direction==0:
+                self.x[0]+=self.step
+            if self.direction==1:
+                self.x[0]-=self.step
+            if self.direction==2:
+                self.y[0]-=self.step
+            if self.direction==3:
+                self.y[0]+=self.step
+            self.updatecount=0
+    def moveright(self):
+        #self.x+=self.speed
+        self.direction=0
+    def moveleft(self):
+        #self.x-=self.speed
+        self.direction=1
+    def moveup(self):
+        #self.y-=self.speed
+        self.direction=2
+    def movedown(self):
+        #self.y+=self.speed
+        self.direction=3
+    def draw(self,surface,image):
+        for i in range(0,self.length):
+            surface.blit(image,(self.x[i],self.y[i]))
+
+class Computer:
+    x=[0]
+    y=[0]
+    step=44
+    direction=0
+    length=3
+    updatecountmax=2
+    updatecount=0
+    def __init__(self,length):
+        self.length=length
+        for i in range(0,2000):
+            self.x.append(-100)
+            self.y.append(-100)
+            #initial pos ;no collisions
+        self.x[0]=1*44
+        self.y[0]=4*44
     def update(self):
         self.updatecount+=1
         if  self.updatecount > self.updatecountmax:  #update prev position   
@@ -42,9 +107,28 @@ class Computer:
         self.direction=2
     def movedown(self):
         self.direction=3
+
+    def target(Self,dx,dy):   #this func will go to destintion and neglect any obstacles
+        if self.x[0] >dx:
+            self.moveleft()
+        if self.x[0] <dx:
+            self.moveright()
+        if self.x[0] ==dx:
+            if self.y[0] <dy:
+                self.movedown()
+            if self.y[0]>dy:
+                self.moveup()
+    
     def draw(self,surface,image):
         for i in range(0,self.length):
             surface.blit(image,(self.x[i],self.y[i]))
+
+class Game:                                         #handling collision with snake's food
+    def isCollision(self,x1,y1,x2,y2,bsize):
+        if x1>=x2 and x1<=x2+bsize:
+            if y1>=y2 and y1<=y2+bsize:
+                return True
+        return False
 
 
 
@@ -74,17 +158,7 @@ class Computer:
 
         pass                
     
-    def target(Self,dx,dy):   #this func will go to destintion and neglect any obstacles
-        if self.x[0] >dx:
-            self.moveleft()
-        if self.x[0] <dx:
-            self.moveright()
-        if self.x[0] ==dx:
-            if self.y[0] <dy:
-                self.movedown()
-            if self.y[0]>dy:
-                self.moveup()
-
+    
         
                 
         
