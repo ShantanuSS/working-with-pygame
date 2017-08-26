@@ -80,3 +80,15 @@ while True:
         player.left -= MOVESPEED
     if moveRight and player.right < WINDOWWIDTH:
         player.right += MOVESPEED 
+    windowSurface.blit(playerStretchedImage, player)
+    for food in foods[:]:
+        if player.colliderect(food):
+            foods.remove(food)
+            player = pygame.Rect(player.left, player.top, player.width + 2, player.height + 2)
+            playerStretchedImage = pygame.transform.scale(playerImage, (player.width, player.height))
+            if musicPlaying:
+                pickUpSound.play()
+    for food in foods:
+        windowSurface.blit(foodImage, food)
+    pygame.display.update()
+    mainClock.tick(40) 
