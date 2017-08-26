@@ -1,7 +1,7 @@
-import pygame, sys, time, random
+import pygame, sys, time, random,os
 from pygame.locals import *
-pygame.mixer.pre_init(44100,16,2,4096)
-pygame.init()
+print(os.getcwd())
+#pygame.init()
 mainClock = pygame.time.Clock()
 WINDOWWIDTH = 400
 WINDOWHEIGHT = 400
