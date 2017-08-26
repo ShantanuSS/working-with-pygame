@@ -1,7 +1,9 @@
-import pygame, sys, time, random,os
+import pygame, sys, time, random
 from pygame.locals import *
-print(os.getcwd())
-#pygame.init()
+from pygame.mixer import Sound
+pygame.mixer.init()
+pygame.init()
+pygame.mixer.init()
 mainClock = pygame.time.Clock()
 WINDOWWIDTH = 400
 WINDOWHEIGHT = 400
@@ -22,7 +24,7 @@ moveRight = False
 moveUp = False
 moveDown = False
 MOVESPEED = 6
-pickUpSound = pygame.mixer.Sound('ktone.wav')
+pickUpSound = pygame.mixer.Sound('ktone.ogg')
 pygame.mixer.music.load('background.mid')
 pygame.mixer.music.play(-1, 0.0)
 musicPlaying = True
