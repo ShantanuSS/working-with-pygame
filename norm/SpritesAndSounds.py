@@ -10,7 +10,7 @@ BLACK = (0, 0, 0)
 player = pygame.Rect(300, 100, 40, 40)
 playerImage = pygame.image.load('player.png')
 playerStretchedImage = pygame.transform.scale(playerImage, (40, 40))
-foodImage = pygame.image.load('cherry.png')
+foodImage = pygame.image.load('Rose.png')
 foods = []
 for i in range(20):
     foods.append(pygame.Rect(random.randint(0, WINDOWWIDTH - 20), random.randint(0, WINDOWHEIGHT - 20), 20, 20))
