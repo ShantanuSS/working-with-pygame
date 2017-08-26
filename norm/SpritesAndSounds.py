@@ -21,7 +21,7 @@ moveRight = False
 moveUp = False
 moveDown = False
 MOVESPEED = 6
-pickUpSound = pygame.mixer.Sound('pickup.wav')
+pickUpSound = pygame.mixer.Sound('ktone.mp3')
 pygame.mixer.music.load('background.mid')
 pygame.mixer.music.play(-1, 0.0)
 musicPlaying = True
